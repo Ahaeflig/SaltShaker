@@ -11,7 +11,7 @@ import com.badlogic.gdx.Gdx;
 public enum AccelerometerTracker {
 	INSTANCE;
 
-	private static final double SHAKE_TRIGGER = 1.7;
+	private static final double SHAKE_TRIGGER = 1.4;
 	private static final float GRAVITY_EARTH = (float) 9.81;
 	private float mXGrav = 1;
 	private float mYGrav = 1;

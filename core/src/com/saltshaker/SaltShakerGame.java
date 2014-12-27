@@ -1,27 +1,60 @@
 package com.saltshaker;
 
+import com.accelerometer.AccelerometerTracker;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class SaltShakerGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
+	private SpriteBatch batch;
+	private Texture idleShaker;
+	private Sprite idleShakerSprite;
+
+	private TextureAtlas textureAtlas;
+	private Animation animation;
+	private AccelerometerTracker accelerometerTracker = AccelerometerTracker
+			.getInstance();
+
+	private float elapsedTime = 0;
+	private float width;
+	private float height;
+
 	@Override
-	public void create () {
+	public void create() {
+		width = Gdx.graphics.getWidth();
+		height = Gdx.graphics.getHeight();
+
 		batch = new SpriteBatch();
-		img = new Texture(Gdx.files.internal("images/saltshaker.jpg"));
+		idleShaker = new Texture(Gdx.files.internal("images/saltshaker.jpg"));
+		idleShakerSprite = new Sprite(idleShaker);
+
+		textureAtlas = new TextureAtlas(
+				Gdx.files.internal("animation/saltshakeranimation.atlas"));
+		animation = new Animation(1 / 10f, textureAtlas.getRegions());
+
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+
+		if (accelerometerTracker.isShaking()) {
+			elapsedTime += Gdx.graphics.getDeltaTime();
+			batch.draw(animation.getKeyFrame(elapsedTime, true), 0, 0,
+					width / 2, height / 2, width, height, 1f, 1f, 180);
+			batch.end();
+		} else {
+			batch.draw(idleShakerSprite, 0, 0, width / 2, height / 2, width,
+					height, 1f, 1f, 180);
+			batch.end();
+		}
 	}
 }
