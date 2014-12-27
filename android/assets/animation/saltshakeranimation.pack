@@ -1,0 +1,90 @@
+
+saltshakeranimation.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+0001
+  rotate: false
+  xy: 1, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0002
+  rotate: false
+  xy: 311, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0003
+  rotate: false
+  xy: 621, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+
+saltshakeranimation2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+0004
+  rotate: false
+  xy: 1, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0005
+  rotate: false
+  xy: 311, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0006
+  rotate: false
+  xy: 621, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+
+saltshakeranimation3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+0007
+  rotate: false
+  xy: 1, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0008
+  rotate: false
+  xy: 311, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+0009
+  rotate: false
+  xy: 621, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
+
+saltshakeranimation4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+0010
+  rotate: false
+  xy: 1, 1
+  size: 308, 617
+  orig: 308, 617
+  offset: 0, 0
+  index: -1
