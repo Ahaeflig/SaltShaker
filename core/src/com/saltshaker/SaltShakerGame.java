@@ -23,6 +23,8 @@ public class SaltShakerGame extends ApplicationAdapter {
 	private float elapsedTime = 0;
 	private float width;
 	private float height;
+	private boolean animated = false;
+	private int animationFramCount = 9;
 
 	@Override
 	public void create() {
@@ -35,7 +37,7 @@ public class SaltShakerGame extends ApplicationAdapter {
 
 		textureAtlas = new TextureAtlas(
 				Gdx.files.internal("animation/saltshakeranimation.atlas"));
-		animation = new Animation(1 / 10f, textureAtlas.getRegions());
+		animation = new Animation(0.1f, textureAtlas.getRegions());
 
 	}
 
@@ -47,10 +49,22 @@ public class SaltShakerGame extends ApplicationAdapter {
 		batch.begin();
 
 		if (accelerometerTracker.isShaking()) {
+			animated = true;
+		}
+		
+		if (animated) {
 			elapsedTime += Gdx.graphics.getDeltaTime();
 			batch.draw(animation.getKeyFrame(elapsedTime, true), 0, 0,
 					width / 2, height / 2, width, height, 1f, 1f, 180);
 			batch.end();
+			
+			System.out.println((animationFramCount  * 0.1f));
+			if (elapsedTime > (animationFramCount  * 0.1f)) {
+				animated = false;
+				elapsedTime = 0;
+			}
+			
+
 		} else {
 			batch.draw(idleShakerSprite, 0, 0, width / 2, height / 2, width,
 					height, 1f, 1f, 180);
